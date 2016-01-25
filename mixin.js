@@ -60,8 +60,8 @@ function mixin(base, mixin) {
 }
 
 function mixin_constructor(name, ctor) {
-  var str = "function __ctor() { var c = ctor.constructors; for (var i in c) { c[i].apply(this, arguments); } }";
-  eval(str.replace(/__ctor/, name));
+  var str = "function __ctor() { var c = ctor.constructors; for (var i in c) { c[i].apply(this, arguments); } };".replace(/__ctor/g, name);
+  eval(str);
   return eval(name);
 }
 
